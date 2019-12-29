@@ -10,6 +10,7 @@
         <Label Content="Ilość: " HorizontalAlignment="Left" Margin="72,52,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CountTextBox" HorizontalAlignment="Left" Height="23" Margin="112,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="IncrementBtn" Content="Zwiększ" HorizontalAlignment="Left" Margin="51,103,0,0" VerticalAlignment="Top" Width="75" Click="IncrementBtn_Click"/>
+        <Button x:Name="BackBtn" Content="Anuluj" HorizontalAlignment="Left" Margin="131,103,0,0" VerticalAlignment="Top" Width="75" Click="BackBtn_Click"/>
 
     </Grid>
 </Window>

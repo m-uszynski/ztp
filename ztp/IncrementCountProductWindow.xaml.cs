@@ -56,5 +56,10 @@ namespace ztp
             }
 
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
