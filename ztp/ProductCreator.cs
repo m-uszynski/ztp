@@ -8,6 +8,6 @@ namespace ztp
 {
     public abstract class ProductCreator
     {
-        public abstract IProduct Create(string Name, int Count, double Price, int VAT);
+        public abstract IProduct Create(string Name, int Count, float Price, int VAT);
     }
 }

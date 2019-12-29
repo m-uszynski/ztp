@@ -22,11 +22,9 @@ namespace ztp
         public ProductListWindow()
         {
             InitializeComponent();
-            List<IProduct> products = new List<IProduct>();
-            ProductCreator pc = new CasualProductCreator();
-            products.Add(pc.Create("Garnitur", 3, 23.23, 23));
-            products.Add(pc.Create("Koszula", 4, 10, 23));
-            Products.ItemsSource = products;
+            Magazine m = new Magazine();
+
+            Products.ItemsSource = m.GetAllProducts(); 
         }
     }
 }

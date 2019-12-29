@@ -8,7 +8,7 @@ namespace ztp
 {
     class CasualProductCreator : ProductCreator
     {
-        public override IProduct Create(string Name, int Count, double Price, int VAT)
+        public override IProduct Create(string Name, int Count, float Price, int VAT)
         {
             return new CasualProduct(Name,Count,Price,VAT);
         }

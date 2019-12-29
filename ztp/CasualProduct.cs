@@ -10,10 +10,10 @@ namespace ztp
     {
         public string Name { get; set; }
         public int Count { get; set; }
-        public double Price { get; set; }
+        public float Price { get; set; }
         public int VAT { get; set; }
 
-        public double Sum
+        public float Sum
         {
             get
             {
@@ -21,7 +21,7 @@ namespace ztp
             }
         }
 
-        public CasualProduct(string Name, int Count, double Price, int VAT)
+        public CasualProduct(string Name, int Count, float Price, int VAT)
         {
             this.Name = Name;
             this.Count = Count;
