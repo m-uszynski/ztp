@@ -10,25 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ztp
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy ProductListWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductListWindow : Window
     {
-        public MainWindow()
+        public ProductListWindow()
         {
             InitializeComponent();
-        }
-
-        private void MagazineBtn_Click(object sender, RoutedEventArgs e)
-        {
-            ProductListWindow plw = new ProductListWindow();
-            plw.Show();
+            List<IProduct> products = new List<IProduct>();
+            ProductCreator pc = new CasualProductCreator();
+            products.Add(pc.Create("Garnitur", 3, 23.23, 23));
+            products.Add(pc.Create("Koszula", 4, 10, 23));
+            Products.ItemsSource = products;
         }
     }
 }
