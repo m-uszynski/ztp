@@ -39,6 +39,30 @@ namespace ztp
             //products.Add(product);
         }
 
+        public void DeleteProduct(int id)
+        {
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "delete from products where id='" + id + "';";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read()) { }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
+        }
+
         public List<IProduct> GetAllProducts()
         {
             try
@@ -56,7 +80,7 @@ namespace ztp
                 while (reader.Read())
                 {
                     ProductCreator pc = new CasualProductCreator();
-                    products.Add(pc.Create(reader.GetString(1), reader.GetInt32(2), reader.GetFloat(3), reader.GetInt32(4)));
+                    products.Add(pc.Create(reader.GetInt32(0),reader.GetString(1), reader.GetInt32(2), reader.GetFloat(3), reader.GetInt32(4)));
                 }
 
                 reader.Close();

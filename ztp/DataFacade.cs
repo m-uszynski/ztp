@@ -19,5 +19,10 @@ namespace ztp
         {
             magazine.AddProduct(Name, Count, Price, VAT);
         }
+
+        public void deleteProduct(int id)
+        {
+            magazine.DeleteProduct(id);
+        }
     }
 }

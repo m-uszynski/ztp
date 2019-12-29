@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ProductListWindow" Height="450" Width="800">
     <Grid>
-        <ListView Margin="20,50,20,50" Name="Products">
+        <ListView Margin="20,50,20,50" Name="Products" SelectionMode="Single" PreviewKeyDown="Products_PreviewKeyDown">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nazwa" Width="120" DisplayMemberBinding="{Binding Name}"/>
@@ -16,8 +16,14 @@
                     <GridViewColumn Header="VAT" Width="50" DisplayMemberBinding="{Binding VAT}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Button x:Name="addProductBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addProductBtn_Click"/>
         <Button x:Name="backToMenuBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,375,0,0" VerticalAlignment="Top" Width="100" Click="backToMenuBtn_Click"/>
+        <Button x:Name="deleteProductBtn" Content="-" HorizontalAlignment="Left" Margin="55,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="deleteProductBtn_Click"/>
     </Grid>
 </Window>

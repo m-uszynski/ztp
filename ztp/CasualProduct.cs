@@ -8,6 +8,7 @@ namespace ztp
 {
     class CasualProduct : IProduct
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
         public float Price { get; set; }
@@ -21,8 +22,9 @@ namespace ztp
             }
         }
 
-        public CasualProduct(string Name, int Count, float Price, int VAT)
+        public CasualProduct(int Id, string Name, int Count, float Price, int VAT)
         {
+            this.Id = Id;
             this.Name = Name;
             this.Count = Count;
             this.Price = Price;

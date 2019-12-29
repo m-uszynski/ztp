@@ -21,19 +21,19 @@ namespace ztp
     {
         DataFacade data = new DataFacade();
         private List<IProduct> products;
+        private int selectedId = -1;
 
         public ProductListWindow()
         {
             InitializeComponent();
             Application.Current.MainWindow = this;
+            deleteProductBtn.IsEnabled = false;
             products = data.getProducts();
             Products.ItemsSource = products;
         }
 
         private void addProductBtn_Click(object sender, RoutedEventArgs e)
         {
-            //data.addProduct("Test", 1, 10, 8);
-            //refreshList();
             AddProductWindow apw = new AddProductWindow();
             apw.Show();
         }
@@ -51,6 +51,31 @@ namespace ztp
             MainWindow mw = new MainWindow();
             mw.Show();
             m.Close();
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null)
+            {
+                IProduct cp = item.DataContext as IProduct;
+                selectedId = cp.Id;
+                deleteProductBtn.IsEnabled = true;
+                Console.WriteLine(cp.Id);
+            }
+        }
+
+        private void deleteProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            data.deleteProduct(selectedId);
+            selectedId = -1;
+            deleteProductBtn.IsEnabled = false;
+            refreshList();
+        }
+
+        private void Products_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
