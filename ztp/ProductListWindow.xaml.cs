@@ -22,9 +22,10 @@ namespace ztp
         public ProductListWindow()
         {
             InitializeComponent();
-            Magazine m = new Magazine();
 
-            Products.ItemsSource = m.GetAllProducts(); 
+            DataFacade data = new DataFacade();
+
+            Products.ItemsSource = data.getProducts(); 
         }
     }
 }

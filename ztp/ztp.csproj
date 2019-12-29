@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="CasualProduct.cs" />
     <Compile Include="CasualProductCreator.cs" />
+    <Compile Include="DataFacade.cs" />
     <Compile Include="IProduct.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="MainWindow.xaml.cs">
