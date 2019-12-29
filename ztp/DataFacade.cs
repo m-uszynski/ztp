@@ -24,5 +24,10 @@ namespace ztp
         {
             magazine.DeleteProduct(id);
         }
+
+        public void incrementCountProduct(int id, int count)
+        {
+            magazine.IncrementCountProduct(id, count);
+        }
     }
 }

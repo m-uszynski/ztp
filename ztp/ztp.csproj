@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="IncrementCountProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +97,9 @@
     <Compile Include="CasualProduct.cs" />
     <Compile Include="CasualProductCreator.cs" />
     <Compile Include="DataFacade.cs" />
+    <Compile Include="IncrementCountProductWindow.xaml.cs">
+      <DependentUpon>IncrementCountProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IProduct.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="MainWindow.xaml.cs">

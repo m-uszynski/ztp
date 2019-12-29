@@ -28,6 +28,7 @@ namespace ztp
             InitializeComponent();
             Application.Current.MainWindow = this;
             deleteProductBtn.IsEnabled = false;
+            incrementProductCountBtn.IsEnabled = false;
             products = data.getProducts();
             Products.ItemsSource = products;
         }
@@ -61,6 +62,7 @@ namespace ztp
                 IProduct cp = item.DataContext as IProduct;
                 selectedId = cp.Id;
                 deleteProductBtn.IsEnabled = true;
+                incrementProductCountBtn.IsEnabled = true;
                 Console.WriteLine(cp.Id);
             }
         }
@@ -70,12 +72,19 @@ namespace ztp
             data.deleteProduct(selectedId);
             selectedId = -1;
             deleteProductBtn.IsEnabled = false;
+            incrementProductCountBtn.IsEnabled = false;
             refreshList();
         }
 
         private void Products_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void incrementProductCountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IncrementCountProductWindow icpw = new IncrementCountProductWindow(selectedId);
+            icpw.Show();
         }
     }
 }
