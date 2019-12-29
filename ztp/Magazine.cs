@@ -13,9 +13,30 @@ namespace ztp
     {
         private List<IProduct> products = new List<IProduct>();
 
-        public void AddProduct(IProduct product)
+        public void AddProduct(string Name, int Count, float Price, int VAT)
         {
-            products.Add(product);
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "insert into products(id,name,count,price,vat) values (NULL,'" + Name + "','" + Count + "','" + Price + "','" + VAT + "');";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read()) { }
+
+                con.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd połączenia z bazą danych: " + ex.Message);
+            }
+
+            //products.Add(product);
         }
 
         public List<IProduct> GetAllProducts()
@@ -34,7 +55,6 @@ namespace ztp
 
                 while (reader.Read())
                 {
-                    //Console.WriteLine(reader.GetString(1) + " " + reader.GetInt32(2) + " " + reader.GetFloat(3) + " " + reader.GetInt32(4));
                     ProductCreator pc = new CasualProductCreator();
                     products.Add(pc.Create(reader.GetString(1), reader.GetInt32(2), reader.GetFloat(3), reader.GetInt32(4)));
                 }
@@ -47,7 +67,7 @@ namespace ztp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Błąd połączenia z bazą danych: " + ex.Message);
                 return null;
             }
         }

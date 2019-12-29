@@ -29,6 +29,7 @@ namespace ztp
         {
             ProductListWindow plw = new ProductListWindow();
             plw.Show();
+            this.Close();
         }
     }
 }

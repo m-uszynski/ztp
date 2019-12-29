@@ -14,5 +14,10 @@ namespace ztp
         {
             return magazine.GetAllProducts();
         }
+
+        public void addProduct(string Name, int Count, float Price, int VAT)
+        {
+            magazine.AddProduct(Name, Count, Price, VAT);
+        }
     }
 }

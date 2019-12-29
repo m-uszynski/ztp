@@ -19,13 +19,38 @@ namespace ztp
     /// </summary>
     public partial class ProductListWindow : Window
     {
+        DataFacade data = new DataFacade();
+        private List<IProduct> products;
+
         public ProductListWindow()
         {
             InitializeComponent();
+            Application.Current.MainWindow = this;
+            products = data.getProducts();
+            Products.ItemsSource = products;
+        }
 
-            DataFacade data = new DataFacade();
+        private void addProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //data.addProduct("Test", 1, 10, 8);
+            //refreshList();
+            AddProductWindow apw = new AddProductWindow();
+            apw.Show();
+        }
 
-            Products.ItemsSource = data.getProducts(); 
+        public void refreshList()
+        {
+            products.Clear();
+            products = data.getProducts();
+            Products.Items.Refresh();
+        }
+
+        private void backToMenuBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProductListWindow m = (ProductListWindow)Application.Current.MainWindow;
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            m.Close();
         }
     }
 }
