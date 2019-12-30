@@ -38,10 +38,31 @@ namespace ztp
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            selectedProduct.Count = 1;
-            AddOrderWindow mw = (AddOrderWindow)Application.Current.MainWindow;
-            mw.addToChosenList(selectedProduct);
-            this.Close();
+            bool validation = true;
+
+            int count = 0;
+
+            if (!Int32.TryParse(countTextBox.Text, out count))
+            {
+                validation = false;
+                MessageBox.Show("Ilość musi być liczbą całkowitą", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                if(count<0 || count > selectedProduct.Count)
+                {
+                    validation = false;
+                    MessageBox.Show("Ilość musi być z przedziału (0 - liczba dostępna w magazynie)", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+
+            if (validation == true)
+            {
+                selectedProduct.Count = count;
+                AddOrderWindow mw = (AddOrderWindow)Application.Current.MainWindow;
+                mw.addToChosenList(selectedProduct);
+                this.Close();
+            }
         }
     }
 }
