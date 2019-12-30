@@ -54,5 +54,12 @@ namespace ztp
             aow.Show();
             this.Close();
         }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
     }
 }

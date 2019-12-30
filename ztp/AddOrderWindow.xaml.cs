@@ -112,6 +112,9 @@ namespace ztp
                     data.decrementCountProduct(product.Id, product.Count);
                 }
                 data.addOrder(order.Firstname, order.Lastname, order.Pesel, chosenProducts);
+                OrderListWindow olw = new OrderListWindow();
+                olw.Show();
+                this.Close();
             }
             else
             {

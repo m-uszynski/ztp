@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="OrderListWindow" Height="450" Width="979.402">
+        Title="OrderListWindow" Height="450" Width="875.002">
     <Grid>
-        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="347" Margin="10,63,0,0" VerticalAlignment="Top" Width="433">
+        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="20,63,0,0" VerticalAlignment="Top" Width="433">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" DisplayMemberBinding="{Binding Firstname}">
@@ -38,7 +38,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="347" Margin="498,63,0,0" VerticalAlignment="Top" Width="400">
+        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="516,63,0,0" VerticalAlignment="Top" Width="328">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
@@ -65,5 +65,6 @@
             </ListView.View>
         </ListView>
         <Button x:Name="addOrderBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addOrderBtn_Click"/>
+        <Button x:Name="backBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Width="100" Click="backBtn_Click"/>
     </Grid>
 </Window>
