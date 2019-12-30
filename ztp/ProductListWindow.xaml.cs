@@ -86,5 +86,37 @@ namespace ztp
             IncrementCountProductWindow icpw = new IncrementCountProductWindow(selectedId);
             icpw.Show();
         }
+
+        private void SortNameHeader(object sender, RoutedEventArgs e)
+        {
+            products.Clear();
+            Sorter sorter = new Sorter(new SortByName());
+            products = sorter.Sort(data.getProducts());
+            Products.Items.Refresh();
+        }
+
+        private void SortCountHeader(object sender, RoutedEventArgs e)
+        {
+            products.Clear();
+            Sorter sorter = new Sorter(new SortByCount());
+            products = sorter.Sort(data.getProducts());
+            Products.Items.Refresh();
+        }
+
+        private void SortPriceHeader(object sender, RoutedEventArgs e)
+        {
+            products.Clear();
+            Sorter sorter = new Sorter(new SortByPrice());
+            products = sorter.Sort(data.getProducts());
+            Products.Items.Refresh();
+        }
+
+        private void SortVatHeader(object sender, RoutedEventArgs e)
+        {
+            products.Clear();
+            Sorter sorter = new Sorter(new SortByVat());
+            products = sorter.Sort(data.getProducts());
+            Products.Items.Refresh();
+        }
     }
 }

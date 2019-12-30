@@ -10,10 +10,26 @@
         <ListView Margin="20,50,20,50" Name="Products" SelectionMode="Single" PreviewKeyDown="Products_PreviewKeyDown">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwa" Width="120" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Ilość" Width="50" DisplayMemberBinding="{Binding Count}"/>
-                    <GridViewColumn Header="Cena" Width="100" DisplayMemberBinding="{Binding Price}"/>
-                    <GridViewColumn Header="VAT" Width="50" DisplayMemberBinding="{Binding VAT}"/>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="SortNameHeader">Nazwa</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Count}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Count" Click="SortCountHeader">Ilość</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Price}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price" Click="SortPriceHeader">Cena</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding VAT}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Vat" Click="SortVatHeader">VAT</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
