@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="MagazineBtn" Content="Magazyn" HorizontalAlignment="Left" Margin="354,60,0,0" VerticalAlignment="Top" Width="75" Click="MagazineBtn_Click"/>
-
+        <Button x:Name="MagazineBtn" Content="Magazyn" HorizontalAlignment="Left" Margin="339,54,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="MagazineBtn_Click"/>
+        <Button x:Name="OrderBtn" Content="Zamówienia" HorizontalAlignment="Left" Margin="339,118,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="OrderBtn_Click"/>
     </Grid>
 </Window>

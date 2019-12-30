@@ -75,6 +75,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderListWindow.xaml.cs">
+      <DependentUpon>OrderListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderRepository.cs" />
     <Compile Include="SortByCount.cs" />
     <Compile Include="SortByName.cs" />
     <Compile Include="SortByPrice.cs" />
@@ -112,6 +117,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProductListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

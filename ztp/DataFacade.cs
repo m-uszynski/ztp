@@ -9,7 +9,9 @@ namespace ztp
     class DataFacade
     {
         Magazine magazine = new Magazine();
+        OrderRepository orderRepository = new OrderRepository();
 
+        // Products API
         public List<IProduct> getProducts()
         {
             return magazine.GetAllProducts();
@@ -28,6 +30,12 @@ namespace ztp
         public void incrementCountProduct(int id, int count)
         {
             magazine.IncrementCountProduct(id, count);
+        }
+
+        // Orders API
+        public List<Order> getOrders()
+        {
+            return orderRepository.GetAllProducts();
         }
     }
 }

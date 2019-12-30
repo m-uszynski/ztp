@@ -1,0 +1,38 @@
+﻿<Window x:Class="ztp.OrderListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ztp"
+        mc:Ignorable="d"
+        Title="OrderListWindow" Height="450" Width="979.402">
+    <Grid>
+        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="347" Margin="10,34,0,0" VerticalAlignment="Top" Width="433">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Firstname}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Firstname">Imię</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Lastname}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Lastname">Nazwisko</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Pesel}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Pesel">Pesel</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding OrderDate}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Date">Data</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
