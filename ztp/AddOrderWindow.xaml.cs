@@ -80,6 +80,7 @@ namespace ztp
             AvailableProducts.Items.Refresh();
 
             chooseProductBtn.IsEnabled = false;
+            RefreshSumPrice();
         }
 
         private void backChooseProductBtn_Click(object sender, RoutedEventArgs e)
@@ -92,6 +93,7 @@ namespace ztp
             ChosenProducts.Items.Refresh();
 
             backChooseProductBtn.IsEnabled = false;
+            RefreshSumPrice();
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -120,6 +122,16 @@ namespace ztp
             {
                 MessageBox.Show("Imie i nazwisko nie powinno być puste, PESEL musi składać się z 11 cyfr oraz lista produktów nie może być pusta", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void RefreshSumPrice()
+        {
+            float sum = 0;            
+            foreach(IProduct product in chosenProducts)
+            {
+                sum += product.Sum;
+            }
+            SumPriceLabel.Content = "Łącznie: " + String.Format("{0:0.00}", sum);
         }
     }
 }

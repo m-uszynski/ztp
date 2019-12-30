@@ -25,7 +25,7 @@
                             <GridViewColumnHeader Tag="Pesel">Pesel</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding OrderDate}">
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding OrderDate, StringFormat='{}{0:dd/MM/yyyy}'}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Date">Data</GridViewColumnHeader>
                         </GridViewColumn.Header>

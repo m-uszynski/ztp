@@ -18,7 +18,7 @@ namespace ztp
         {
             get
             {
-                return Count * Price;
+                return (Count * Price) - ((Count * Price) * ((float)VAT/100));
             }
         }
 

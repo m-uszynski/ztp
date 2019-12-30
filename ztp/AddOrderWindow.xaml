@@ -33,10 +33,10 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView Name="ChosenProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="437,35,0,0" VerticalAlignment="Top" Width="347">
+        <ListView Name="ChosenProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="407,35,0,0" VerticalAlignment="Top" Width="365">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Name}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Name">Nazwa</GridViewColumnHeader>
                         </GridViewColumn.Header>
@@ -56,6 +56,11 @@
                             <GridViewColumnHeader Tag="Vat">VAT</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Sum, StringFormat={}{0:00.00}}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Sum">Suma</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
@@ -64,8 +69,8 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="chooseProductBtn" Content="&#x2192;" HorizontalAlignment="Left" Margin="355,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24"/>
-        <Button x:Name="backChooseProductBtn" Content="&#x2190;" HorizontalAlignment="Left" Margin="355,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24"/>
+        <Button x:Name="chooseProductBtn" Content="&#x2192;" HorizontalAlignment="Left" Margin="337,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24"/>
+        <Button x:Name="backChooseProductBtn" Content="&#x2190;" HorizontalAlignment="Left" Margin="337,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24"/>
         <Button x:Name="backBtn" Content="Anuluj" HorizontalAlignment="Left" Margin="392,433,0,0" VerticalAlignment="Top" Width="75" Click="backBtn_Click"/>
         <Button x:Name="AddOrder" Content="Złóż Zamowienie" HorizontalAlignment="Left" Margin="287,433,0,0" VerticalAlignment="Top" Width="100" Click="AddOrder_Click"/>
         <Label Content="Imie: " HorizontalAlignment="Left" Margin="27,270,0,0" VerticalAlignment="Top"/>
@@ -74,5 +79,6 @@
         <TextBox x:Name="FirstnameTextBox" HorizontalAlignment="Left" Height="23" Margin="65,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="LastnameTextBox" HorizontalAlignment="Left" Height="23" Margin="93,301,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PeselTextBox" HorizontalAlignment="Left" Height="23" Margin="73,332,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="SumPriceLabel" Content="Łącznie: " HorizontalAlignment="Left" Margin="665,230,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
