@@ -23,5 +23,12 @@ namespace ztp
             this.Pesel = Pesel;
             this.OrderDate = OrderDate;
         }
+
+        public Order(string Firstname, string Lastname, string Pesel)
+        {
+            this.Firstname = Firstname;
+            this.Lastname = Lastname;
+            this.Pesel = Pesel;
+        }
     }
 }

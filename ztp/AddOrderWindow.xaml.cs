@@ -93,5 +93,18 @@ namespace ztp
 
             backChooseProductBtn.IsEnabled = false;
         }
+
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OrderListWindow olw = new OrderListWindow();
+            olw.Show();
+            this.Close();
+        }
+
+        private void AddOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Order order = new Order("Elo", "Siema", "123");
+            data.addOrder(order.Firstname, order.Lastname, order.Pesel, chosenProducts);
+        }
     }
 }

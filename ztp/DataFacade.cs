@@ -43,6 +43,11 @@ namespace ztp
             return orderRepository.GetAllProducts();
         }
 
+        public void addOrder(string Firstname, string Lastname, string Pesel, List<IProduct> orderedProducts)
+        {
+            orderRepository.AddOrder(Firstname, Lastname, Pesel, orderedProducts);
+        }
+
         // OrderedProducts API
         public List<OrderedProduct> GetOrderedProducts(int OrderId)
         {
