@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ztp
 {
-    class Order
+    class Order : IOrder
     {
 
         public int OrderId { get; set; }

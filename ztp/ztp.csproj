@@ -81,12 +81,14 @@
     <Compile Include="AddProductInOrderWindow.xaml.cs">
       <DependentUpon>AddProductInOrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IOrder.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderedProduct.cs" />
     <Compile Include="OrderListWindow.xaml.cs">
       <DependentUpon>OrderListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderRepository.cs" />
+    <Compile Include="ProxyOrder.cs" />
     <Compile Include="SortByCount.cs" />
     <Compile Include="SortByName.cs" />
     <Compile Include="SortByPrice.cs" />

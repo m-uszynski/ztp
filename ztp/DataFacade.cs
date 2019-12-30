@@ -37,6 +37,11 @@ namespace ztp
             magazine.IncrementCountProduct(id, count);
         }
 
+        public void decrementCountProduct(int id, int count)
+        {
+            magazine.DecrementCountProduct(id, count);
+        }
+
         // Orders API
         public List<Order> getOrders()
         {

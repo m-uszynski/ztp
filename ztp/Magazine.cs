@@ -88,6 +88,31 @@ namespace ztp
             }
         }
 
+        public void DecrementCountProduct(int id, int countToDecrement)
+        {
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "update products set count=count-" + countToDecrement + " where id='" + id + "';";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) { }
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
+        }
+
         public IProduct GetProduct(int id)
         {
             IProduct product = null;

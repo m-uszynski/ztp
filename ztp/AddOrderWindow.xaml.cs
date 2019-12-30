@@ -103,8 +103,20 @@ namespace ztp
 
         private void AddOrder_Click(object sender, RoutedEventArgs e)
         {
-            Order order = new Order("Elo", "Siema", "123");
-            data.addOrder(order.Firstname, order.Lastname, order.Pesel, chosenProducts);
+            ProxyOrder proxyOrder = new ProxyOrder(FirstnameTextBox.Text, LastnameTextBox.Text, PeselTextBox.Text);
+            IOrder order = proxyOrder.Validate(chosenProducts);
+            if (order != null)
+            {
+                foreach(IProduct product in chosenProducts)
+                {
+                    data.decrementCountProduct(product.Id, product.Count);
+                }
+                data.addOrder(order.Firstname, order.Lastname, order.Pesel, chosenProducts);
+            }
+            else
+            {
+                MessageBox.Show("Imie i nazwisko nie powinno być puste, PESEL musi składać się z 11 cyfr oraz lista produktów nie może być pusta", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
