@@ -85,7 +85,7 @@ namespace ztp
             }
         }
 
-        public void AddOrder(string Firstname, string Lastname, string Pesel, List<IProduct> orderedProducts)
+        public void AddOrder(IOrder order, List<IProduct> orderedProducts)
         {
             int orderId = -1;
             try
@@ -95,7 +95,7 @@ namespace ztp
 
 
                 // INSERT ORDER
-                string query = "insert into orders(orderid,firstname,lastname,pesel,date) values (NULL,'" + Firstname + "','" + Lastname + "','" + Pesel + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "');";
+                string query = "insert into orders(orderid,firstname,lastname,pesel,date) values (NULL,'" + order.Firstname + "','" + order.Lastname + "','" + order.Pesel + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "');";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
