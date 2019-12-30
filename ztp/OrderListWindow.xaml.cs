@@ -21,6 +21,8 @@ namespace ztp
     {
         DataFacade data = new DataFacade();
         private List<Order> orders = new List<Order>();
+        private List<OrderedProduct> orderedProducts = new List<OrderedProduct>();
+        private int orderSelectedId = -1;
 
         public OrderListWindow()
         {
@@ -28,6 +30,22 @@ namespace ztp
             Application.Current.MainWindow = this;
             orders = data.getOrders();
             Orders.ItemsSource = orders;
+        }
+
+        private void OrderListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null)
+            {
+                Order order = item.DataContext as Order;
+                orderSelectedId = order.OrderId;
+                //Console.WriteLine(orderSelectedId);
+            }
+            if(orderSelectedId != -1)
+            {
+                orderedProducts = data.GetOrderedProducts(orderSelectedId);
+                OrderedProducts.ItemsSource = orderedProducts;
+            }
         }
     }
 }

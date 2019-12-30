@@ -37,5 +37,11 @@ namespace ztp
         {
             return orderRepository.GetAllProducts();
         }
+
+        // OrderedProducts API
+        public List<OrderedProduct> GetOrderedProducts(int OrderId)
+        {
+            return orderRepository.getOrderedProducts(OrderId);
+        }
     }
 }

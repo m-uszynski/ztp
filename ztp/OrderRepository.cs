@@ -43,5 +43,38 @@ namespace ztp
                 return null;
             }
         }
+
+        public List<OrderedProduct> getOrderedProducts(int OrderId)
+        {
+            List<OrderedProduct> orderedProducts = new List<OrderedProduct>();
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "select * from orderedproducts where orderid='" + OrderId + "';";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    OrderedProduct currentOrderedProducts = new OrderedProduct(reader.GetInt32(0),reader.GetInt32(1), reader.GetString(2), reader.GetInt32(3), reader.GetFloat(4), reader.GetInt32(5),reader.GetInt32(6));
+                    orderedProducts.Add(currentOrderedProducts);
+                }
+
+                reader.Close();
+                con.Close();
+
+                return orderedProducts;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd połączenia z bazą danych: " + ex.Message);
+                return null;
+            }
+        }
     }
 }
