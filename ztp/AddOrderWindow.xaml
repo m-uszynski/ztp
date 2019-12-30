@@ -64,7 +64,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="chooseProductBtn" Content="->" HorizontalAlignment="Left" Margin="355,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click"/>
-        <Button x:Name="backChooseProductBtn" Content="b" HorizontalAlignment="Left" Margin="355,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click"/>
+        <Button x:Name="chooseProductBtn" Content="&#x2192;" HorizontalAlignment="Left" Margin="355,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24"/>
+        <Button x:Name="backChooseProductBtn" Content="&#x2190;" HorizontalAlignment="Left" Margin="355,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24"/>
     </Grid>
 </Window>
