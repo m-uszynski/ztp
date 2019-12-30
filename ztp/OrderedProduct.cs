@@ -9,15 +9,17 @@ namespace ztp
     class OrderedProduct
     {
         public int OrderedProductId { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
         public float Price { get; set; }
         public int VAT { get; set; }
         public int OrderId { get; set; }
 
-        public OrderedProduct(int OrderedProductId, string Name, int Count, float Price, int Vat, int OrderId)
+        public OrderedProduct(int OrderedProductId,int ProductId, string Name, int Count, float Price, int Vat, int OrderId)
         {
             this.OrderedProductId = OrderedProductId;
+            this.ProductId = ProductId;
             this.Name = Name;
             this.Count = Count;
             this.Price = Price;

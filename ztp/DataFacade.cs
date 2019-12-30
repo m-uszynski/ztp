@@ -17,6 +17,11 @@ namespace ztp
             return magazine.GetAllProducts();
         }
 
+        public IProduct getProduct(int id)
+        {
+            return magazine.GetProduct(id);
+        }
+
         public void addProduct(string Name, int Count, float Price, int VAT)
         {
             magazine.AddProduct(Name, Count, Price, VAT);

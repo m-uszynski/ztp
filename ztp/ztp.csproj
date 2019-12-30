@@ -75,6 +75,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddOrderWindow.xaml.cs">
+      <DependentUpon>AddOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddProductInOrderWindow.xaml.cs">
+      <DependentUpon>AddProductInOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrderedProduct.cs" />
     <Compile Include="OrderListWindow.xaml.cs">
@@ -87,6 +93,14 @@
     <Compile Include="SortByVat.cs" />
     <Compile Include="Sorter.cs" />
     <Compile Include="StrategyOfSort.cs" />
+    <Page Include="AddOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddProductInOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

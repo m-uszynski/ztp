@@ -47,5 +47,12 @@ namespace ztp
                 OrderedProducts.ItemsSource = orderedProducts;
             }
         }
+
+        private void addOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddOrderWindow aow = new AddOrderWindow();
+            aow.Show();
+            this.Close();
+        }
     }
 }
