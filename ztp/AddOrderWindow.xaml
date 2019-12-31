@@ -1,0 +1,95 @@
+﻿<Window x:Class="ztp.AddOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ztp"
+        mc:Ignorable="d"
+        Title="AddOrderWindow" Height="501.2" Width="800">
+    <Grid>
+        <ListView Name="AvailableProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="27,35,0,0" VerticalAlignment="Top" Width="291">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name">Nazwa</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Price}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price">Cena</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding VAT}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Vat">VAT</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="AvailableProductListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView Name="ChosenProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="407,35,0,0" VerticalAlignment="Top" Width="365">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name">Nazwa</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Count}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Count">Ilość</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Price}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price">Cena</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding VAT}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Vat">VAT</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Sum, StringFormat={}{0:00.00}}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Sum">Suma</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ChoosenProductListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Button x:Name="chooseProductBtn" Content="&#x2192;" HorizontalAlignment="Left" Margin="337,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24"/>
+        <Button x:Name="backChooseProductBtn" Content="&#x2190;" HorizontalAlignment="Left" Margin="337,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24"/>
+        <Button x:Name="backBtn" Content="Anuluj" HorizontalAlignment="Left" Margin="392,433,0,0" VerticalAlignment="Top" Width="75" Click="backBtn_Click"/>
+        <Button x:Name="AddOrder" Content="Złóż Zamowienie" HorizontalAlignment="Left" Margin="287,433,0,0" VerticalAlignment="Top" Width="100" Click="AddOrder_Click"/>
+        <Label x:Name="SumPriceLabel" Content="Łącznie: 0.00" HorizontalAlignment="Left" Margin="591,230,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic"/>
+        <GroupBox Header="Zniżka" HorizontalAlignment="Left" Height="100" Margin="287,270,0,0" VerticalAlignment="Top" Width="206">
+            <Grid>
+                <CheckBox x:Name="regularCustomerCheckBox" Content="Stały klient (-5%)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="discountCheckBox_Click"/>
+                <CheckBox x:Name="xmasSaleCheckBox" Content="Wyprzedaż świąteczna (-30%)" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="discountCheckBox_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Dane klienta" HorizontalAlignment="Left" Height="124" Margin="27,270,0,0" VerticalAlignment="Top" Width="218">
+            <Grid>
+                <Label Content="Imie: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Nazwisko: " HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+                <Label Content="PESEL: " HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="FirstnameTextBox" HorizontalAlignment="Left" Height="23" Margin="50,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+                <TextBox x:Name="LastnameTextBox" HorizontalAlignment="Left" Height="23" Margin="80,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="116"/>
+                <TextBox x:Name="PeselTextBox" HorizontalAlignment="Left" Height="23" Margin="60,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>

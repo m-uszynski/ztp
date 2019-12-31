@@ -24,5 +24,19 @@ namespace ztp
         {
             InitializeComponent();
         }
+
+        private void MagazineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProductListWindow plw = new ProductListWindow();
+            plw.Show();
+            this.Close();
+        }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OrderListWindow olw = new OrderListWindow();
+            olw.Show();
+            this.Close();
+        }
     }
 }

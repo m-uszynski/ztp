@@ -1,0 +1,46 @@
+﻿<Window x:Class="ztp.ProductListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ztp"
+        mc:Ignorable="d"
+        Title="ProductListWindow" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="20,50,20,50" Name="Products" SelectionMode="Single" PreviewKeyDown="Products_PreviewKeyDown">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Name" Click="SortNameHeader">Nazwa</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Count}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Count" Click="SortCountHeader">Ilość</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Price}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price" Click="SortPriceHeader">Cena</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding VAT}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Vat" Click="SortVatHeader">VAT</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Button x:Name="addProductBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addProductBtn_Click"/>
+        <Button x:Name="backToMenuBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,375,0,0" VerticalAlignment="Top" Width="100" Click="backToMenuBtn_Click"/>
+        <Button x:Name="deleteProductBtn" Content="-" HorizontalAlignment="Left" Margin="55,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="deleteProductBtn_Click"/>
+        <Button x:Name="incrementProductCountBtn" Content="Dostawa produktu" HorizontalAlignment="Left" Margin="125,375,0,0" VerticalAlignment="Top" Width="120" Click="incrementProductCountBtn_Click"/>
+    </Grid>
+</Window>
