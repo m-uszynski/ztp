@@ -19,6 +19,63 @@ namespace ztp
             customCulture.NumberFormat.NumberDecimalSeparator = ".";
             System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
         }
+        
+        public void UpdateOrderTotalCost(int id, float cost)
+        {
+            Console.WriteLine("CENA: " + cost);
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "update orders set totalcost=" + cost + " where orderid='" + id + "';";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) { }
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+            }
+        }
+
+        public Order GetOrder(int id)
+        {
+            Order order = null;
+            try
+            {
+                string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
+                string query = "select * from orders where orderid='" + id + "';";
+
+                MySqlConnection con = new MySqlConnection(connectionString);
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                con.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    order = new Order(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetFloat(5));
+                }
+
+                con.Close();
+
+                return order;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wystąpił błąd: " + ex.Message);
+                return null;
+            }
+        }
 
         public List<Order> GetAllProducts()
         {
@@ -36,7 +93,7 @@ namespace ztp
 
                 while (reader.Read())
                 {
-                    Order currentOrder = new Order(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4));
+                    Order currentOrder = new Order(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetFloat(5));
                     orders.Add(currentOrder);
                 }
 
@@ -85,17 +142,22 @@ namespace ztp
             }
         }
 
-        public void AddOrder(IOrder order, List<IProduct> orderedProducts)
+        public int orderId = -1;
+
+        public int getLastOrderId()
         {
-            int orderId = -1;
+            return orderId;
+        }
+
+        public void AddOrder(Order order, List<IProduct> orderedProducts)
+        {
             try
             {
                 string connectionString = "Server=remotemysql.com;Database=ZLVoYz8ysj;Uid=ZLVoYz8ysj;Pwd=7FkJ5gfEh0;";
                 MySqlConnection con = new MySqlConnection(connectionString);
 
-
                 // INSERT ORDER
-                string query = "insert into orders(orderid,firstname,lastname,pesel,date) values (NULL,'" + order.Firstname + "','" + order.Lastname + "','" + order.Pesel + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "');";
+                string query = "insert into orders(orderid,firstname,lastname,pesel,date,totalcost) values (NULL,'" + order.Firstname + "','" + order.Lastname + "','" + order.Pesel + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "','" + 0 + "');";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 con.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -111,7 +173,7 @@ namespace ztp
                 con.Close();
 
                 // INSERT ALL CHOSEN PRODUCT TO ORDER
-                foreach(IProduct product in orderedProducts)
+                foreach (IProduct product in orderedProducts)
                 {
                     con.Open();
                     //OrderedProduct orderedProduct = new OrderedProduct(0, product.Id, product.Name, product.Count, product.Price, product.VAT, orderId);
@@ -121,7 +183,15 @@ namespace ztp
                     while(reader3.Read()) { }
                     con.Close();
                 }
-                
+
+                // EDIT ORDER TOTALCOST
+                string updateTotalSumQuery = "update orders set totalcost=" + order.getTotalCost(orderId) + " where orderid='" + orderId + "';";
+                MySqlCommand cmdUpdate = new MySqlCommand(updateTotalSumQuery, con);
+                con.Open();
+                MySqlDataReader readerUpdate = cmdUpdate.ExecuteReader();
+                while (readerUpdate.Read()) { }
+                con.Close();
+
             }
             catch (Exception ex)
             {

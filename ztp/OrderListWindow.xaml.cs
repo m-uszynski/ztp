@@ -40,6 +40,7 @@ namespace ztp
                 Order order = item.DataContext as Order;
                 orderSelectedId = order.OrderId;
                 //Console.WriteLine(orderSelectedId);
+                //Console.WriteLine(order.getTotalCost());
             }
             if(orderSelectedId != -1)
             {

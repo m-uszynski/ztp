@@ -106,14 +106,27 @@ namespace ztp
         private void AddOrder_Click(object sender, RoutedEventArgs e)
         {
             ProxyOrder proxyOrder = new ProxyOrder(FirstnameTextBox.Text, LastnameTextBox.Text, PeselTextBox.Text);
-            IOrder order = proxyOrder.Validate(chosenProducts);
+            Order order = proxyOrder.Validate(chosenProducts);
             if (order != null)
             {
                 foreach(IProduct product in chosenProducts)
                 {
                     data.decrementCountProduct(product.Id, product.Count);
                 }
+                
                 data.addOrder(order, chosenProducts);
+                order.OrderId = data.getLastInsertProductId();
+
+                Order o = data.getOrder(order.OrderId);
+
+                Console.WriteLine(o.getTotalCost());
+
+                // Discount handlers
+                if ((bool)regularCustomerCheckBox.IsChecked == true) o = new RegularCustomerDecorator(o);
+                if ((bool)xmasSaleCheckBox.IsChecked == true) o = new ChristmasSaleDecorator(o);
+                data.updateOrderTotalCost(order.OrderId, o.getTotalCost());
+
+
                 OrderListWindow olw = new OrderListWindow();
                 olw.Show();
                 this.Close();
@@ -124,14 +137,21 @@ namespace ztp
             }
         }
 
-        private void RefreshSumPrice()
+        private void RefreshSumPrice(float discount = 1)
         {
             float sum = 0;            
             foreach(IProduct product in chosenProducts)
             {
                 sum += product.Sum;
             }
+            if ((bool)regularCustomerCheckBox.IsChecked == true) sum = sum * (95.0f / 100.0f);
+            if ((bool)xmasSaleCheckBox.IsChecked == true) sum = sum * (70.0f / 100.0f);
             SumPriceLabel.Content = "Łącznie: " + String.Format("{0:0.00}", sum);
+        }
+
+        private void discountCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshSumPrice();   
         }
     }
 }

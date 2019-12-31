@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OrderListWindow" Height="450" Width="875.002">
     <Grid>
-        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="20,63,0,0" VerticalAlignment="Top" Width="433">
+        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="10,63,0,0" VerticalAlignment="Top" Width="501">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" DisplayMemberBinding="{Binding Firstname}">
@@ -25,9 +25,14 @@
                             <GridViewColumnHeader Tag="Pesel">Pesel</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding OrderDate, StringFormat='{}{0:dd/MM/yyyy}'}">
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding OrderDate, StringFormat='{}{0:dd/MM/yyyy}'}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Date">Data</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding TotalCost}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="TotalCost">Łączny koszt</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                 </GridView>
@@ -38,7 +43,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="516,63,0,0" VerticalAlignment="Top" Width="328">
+        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="516,63,0,0" VerticalAlignment="Top" Width="343">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">

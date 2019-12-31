@@ -14,6 +14,7 @@ namespace ztp
 
         private IOrder order;
 
+
         public ProxyOrder(string Firstname, string Lastname, String Pesel)
         {
             this.Firstname = Firstname;
@@ -26,7 +27,7 @@ namespace ztp
             order = new Order(this.Firstname, this.Lastname, this.Pesel);
         }
 
-        public IOrder Validate(List<IProduct> orderedProduct)
+        public Order Validate(List<IProduct> orderedProduct)
         {
             bool validation = true;
 
@@ -38,10 +39,11 @@ namespace ztp
             if (validation == true)
             {
                 CreateInstance();
-                return order;
+                return (Order) order;
             }
 
             return null;
         }
+
     }
 }

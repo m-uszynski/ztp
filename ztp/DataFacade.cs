@@ -48,9 +48,24 @@ namespace ztp
             return orderRepository.GetAllProducts();
         }
 
-        public void addOrder(IOrder order, List<IProduct> orderedProducts)
+        public Order getOrder(int id)
+        {
+            return orderRepository.GetOrder(id);
+        }
+
+        public void updateOrderTotalCost(int id, float cost)
+        {
+            orderRepository.UpdateOrderTotalCost(id, cost);
+        }
+
+        public void addOrder(Order order, List<IProduct> orderedProducts)
         {
             orderRepository.AddOrder(order, orderedProducts);
+        }
+
+        public int getLastInsertProductId()
+        {
+            return orderRepository.getLastOrderId();
         }
 
         // OrderedProducts API
