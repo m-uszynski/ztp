@@ -71,5 +71,6 @@
         </ListView>
         <Button x:Name="addOrderBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addOrderBtn_Click"/>
         <Button x:Name="backBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Width="100" Click="backBtn_Click"/>
+        <Button x:Name="generateInvoiceBtn" Content="Generuj fakturę (PDF)" HorizontalAlignment="Left" Margin="139,380,0,0" VerticalAlignment="Top" Width="120" Click="generateInvoiceBtn_Click"/>
     </Grid>
 </Window>

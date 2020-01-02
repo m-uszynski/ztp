@@ -28,6 +28,7 @@ namespace ztp
         {
             InitializeComponent();
             Application.Current.MainWindow = this;
+            generateInvoiceBtn.IsEnabled = false;
             orders = data.getOrders();
             Orders.ItemsSource = orders;
         }
@@ -44,6 +45,7 @@ namespace ztp
             }
             if(orderSelectedId != -1)
             {
+                generateInvoiceBtn.IsEnabled = true;
                 orderedProducts = data.GetOrderedProducts(orderSelectedId);
                 OrderedProducts.ItemsSource = orderedProducts;
             }
@@ -61,6 +63,12 @@ namespace ztp
             MainWindow mw = new MainWindow();
             mw.Show();
             this.Close();
+        }
+
+        private void generateInvoiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            InvoiceGenerator generator = new InvoiceToDocumentGenerator(new DocumentPDF());
+            generator.Generate(orderSelectedId);
         }
     }
 }
