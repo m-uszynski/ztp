@@ -38,5 +38,10 @@ namespace ztp
             olw.Show();
             this.Close();
         }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

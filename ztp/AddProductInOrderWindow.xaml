@@ -5,14 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="AddProductInOrderWindow" Height="261.628" Width="243.854">
+        Title="Estillo - dodawanie produktu" Height="348.175" Width="273" Icon="Graphics/icon.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="ProductNameLabel" Content="Nazwa:" HorizontalAlignment="Left" Margin="13,15,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ProductCountLabel" Content="Ilość w magazynie:" HorizontalAlignment="Left" Margin="13,46,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Count" Content="Ile:" HorizontalAlignment="Left" Margin="13,104,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="countTextBox" HorizontalAlignment="Left" Height="23" Margin="44,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="backBtn" Content="Anuluj" HorizontalAlignment="Left" Margin="109,174,0,0" VerticalAlignment="Top" Width="75" Click="backBtn_Click"/>
-        <Button x:Name="addBtn" Content="Dodaj" HorizontalAlignment="Left" Margin="13,174,0,0" VerticalAlignment="Top" Width="75" Click="addBtn_Click"/>
+        <Label Content="Dodawanie produktu" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="16"/>
+        <GroupBox Header="Dane produktu" HorizontalAlignment="Center" Height="110" Margin="0,60,0,0" VerticalAlignment="Top" Width="218">
+            <Grid>
+                <Label x:Name="ProductNameLabel" Content="Nazwa:" HorizontalAlignment="Left" Margin="13,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+                <Label x:Name="ProductCountLabel" Content="Ilość w magazynie:" HorizontalAlignment="Left" Margin="13,46,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+            </Grid>
+        </GroupBox>
+        <Grid Margin="0,185,0,0" HorizontalAlignment="Center">
+            <Label x:Name="Count" Content="Ile:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="countTextBox" HorizontalAlignment="Left" Height="23" Margin="30,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Grid Margin="0,240,0,0" HorizontalAlignment="Center">
+            <Button x:Name="backBtn" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="35" Click="backBtn_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+                </Button.Effect>
+                <DockPanel>
+                    <Image Source="/Graphics/remove.png" Margin="0,5,10,5"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Anuluj</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="addBtn" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Width="85" Height="35" Click="addBtn_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+                </Button.Effect>
+                <DockPanel>
+                    <Image Source="/Graphics/plus.png" Margin="0,5,10,5"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dodaj</TextBlock>
+                </DockPanel>
+            </Button>
+        </Grid>
 
     </Grid>
 </Window>

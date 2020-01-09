@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="AddOrderWindow" Height="501.2" Width="800">
+        Title="Estillo - składanie zamówienia" Height="536.2" Width="800" ResizeMode="NoResize" Icon="Graphics/icon.png" WindowStartupLocation="CenterScreen" Background="#FFE7E7EE">
     <Grid>
-        <ListView Name="AvailableProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="27,35,0,0" VerticalAlignment="Top" Width="291">
+        <Label Content="Lista dostępnych produktów" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="16"/>
+        <Label Content="Koszyk" HorizontalAlignment="Left" Margin="410,20,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="16"/>
+        <ListView Name="AvailableProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="20,60,0,0" VerticalAlignment="Top" Width="291">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
@@ -33,7 +35,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView Name="ChosenProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="407,35,0,0" VerticalAlignment="Top" Width="365">
+        <ListView Name="ChosenProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="190" Margin="410,60,0,0" VerticalAlignment="Top" Width="365">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" DisplayMemberBinding="{Binding Name}">
@@ -69,18 +71,52 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="chooseProductBtn" Content="&#x2192;" HorizontalAlignment="Left" Margin="337,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24"/>
-        <Button x:Name="backChooseProductBtn" Content="&#x2190;" HorizontalAlignment="Left" Margin="337,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24"/>
-        <Button x:Name="backBtn" Content="Anuluj" HorizontalAlignment="Left" Margin="392,433,0,0" VerticalAlignment="Top" Width="75" Click="backBtn_Click"/>
-        <Button x:Name="AddOrder" Content="Złóż Zamowienie" HorizontalAlignment="Left" Margin="287,433,0,0" VerticalAlignment="Top" Width="100" Click="AddOrder_Click"/>
-        <Label x:Name="SumPriceLabel" Content="Łącznie: 0.00" HorizontalAlignment="Left" Margin="591,230,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="chooseProductBtn" HorizontalAlignment="Left" Margin="337,81,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="chooseProductBtn_Click" FontSize="24">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/right.png" Margin="10,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dodaj produkt</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="backChooseProductBtn" HorizontalAlignment="Left" Margin="337,151,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="backChooseProductBtn_Click" FontSize="24">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/left.png" Margin="10,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dodaj produkt</TextBlock>
+            </DockPanel>
+        </Button>
+        <Grid Margin="0,435,0,0" HorizontalAlignment="Center">
+            <Button x:Name="backBtn" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="35" Click="backBtn_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+                </Button.Effect>
+                <DockPanel>
+                    <Image Source="/Graphics/remove.png" Margin="0,5,10,5"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Anuluj"/></TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="AddOrder" HorizontalAlignment="Left" Margin="93,0,0,0" VerticalAlignment="Top" Width="150" Height="35" Click="AddOrder_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+                </Button.Effect>
+                <DockPanel>
+                    <Image Source="/Graphics/buy.png" Margin="0,5,10,5"/>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Złóż zamówienie"/></TextBlock>
+                </DockPanel>
+            </Button>
+        </Grid>
+        <Label x:Name="SumPriceLabel" Content="Łącznie: 0.00" HorizontalAlignment="Left" Margin="591,260,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic"/>
         <GroupBox Header="Zniżka" HorizontalAlignment="Left" Height="100" Margin="287,270,0,0" VerticalAlignment="Top" Width="206">
             <Grid>
                 <CheckBox x:Name="regularCustomerCheckBox" Content="Stały klient (-5%)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="discountCheckBox_Click"/>
                 <CheckBox x:Name="xmasSaleCheckBox" Content="Wyprzedaż świąteczna (-30%)" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Click="discountCheckBox_Click"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Dane klienta" HorizontalAlignment="Left" Height="124" Margin="27,270,0,0" VerticalAlignment="Top" Width="218">
+        <GroupBox Header="Dane klienta" HorizontalAlignment="Left" Height="124" Margin="27,270,0,0" VerticalAlignment="Top" Width="218" BorderBrush="#FFD5DFE5">
             <Grid>
                 <Label Content="Imie: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Label Content="Nazwisko: " HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>

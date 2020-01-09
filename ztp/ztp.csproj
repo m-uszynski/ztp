@@ -196,6 +196,43 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\supply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\rise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\left.png" />
+    <Resource Include="Graphics\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Graphics\buy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
