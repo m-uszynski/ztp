@@ -5,17 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="ProductListWindow" Height="450" Width="800">
+        Title="Estillo - magazyn" Height="530" Width="800" ResizeMode="NoResize" Icon="Graphics/icon.png" WindowStartupLocation="CenterScreen" Background="#FFE7E7EE">
     <Grid>
-        <ListView Margin="20,50,20,50" Name="Products" SelectionMode="Single" PreviewKeyDown="Products_PreviewKeyDown">
+        <Label Content="Lista produktów w magazynie" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="16"/>
+
+        <Button x:Name="addProductBtn" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="addProductBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/plus.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dodaj produkt</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="deleteProductBtn" HorizontalAlignment="Left" Margin="180,25,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="deleteProductBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/remove.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Usuń produkt</TextBlock>
+            </DockPanel>
+        </Button>
+
+        <ListView Margin="20,120,20,90" Name="Products" SelectionMode="Single" PreviewKeyDown="Products_PreviewKeyDown">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding Name}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Name" Click="SortNameHeader">Nazwa</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Count}">
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding Count}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Count" Click="SortCountHeader">Ilość</GridViewColumnHeader>
                         </GridViewColumn.Header>
@@ -25,7 +46,7 @@
                             <GridViewColumnHeader Tag="Price" Click="SortPriceHeader">Cena</GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding VAT}">
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding VAT}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Vat" Click="SortVatHeader">VAT</GridViewColumnHeader>
                         </GridViewColumn.Header>
@@ -38,9 +59,24 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="addProductBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addProductBtn_Click"/>
-        <Button x:Name="backToMenuBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,375,0,0" VerticalAlignment="Top" Width="100" Click="backToMenuBtn_Click"/>
-        <Button x:Name="deleteProductBtn" Content="-" HorizontalAlignment="Left" Margin="55,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="deleteProductBtn_Click"/>
-        <Button x:Name="incrementProductCountBtn" Content="Dostawa produktu" HorizontalAlignment="Left" Margin="125,375,0,0" VerticalAlignment="Top" Width="120" Click="incrementProductCountBtn_Click"/>
+
+        <Button x:Name="backToMenuBtn" HorizontalAlignment="Left" Margin="20,430,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="backToMenuBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/back.png" Margin="5,5,5,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Menu</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="incrementProductCountBtn" HorizontalAlignment="Left" Margin="125,430,0,0" VerticalAlignment="Top" Width="200" Height="35" Click="incrementProductCountBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/supply.png" Margin="5,5,5,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dostawa produktu</TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </Window>

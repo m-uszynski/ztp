@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="OrderListWindow" Height="450" Width="875.002">
+        Title="Estillo - zamówienia" Height="552" Width="875.002" ResizeMode="NoResize" Icon="Graphics/icon.png" WindowStartupLocation="CenterScreen" Background="#FFE7E7EE">
     <Grid>
-        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="10,63,0,0" VerticalAlignment="Top" Width="501">
+        <Label Content="Lista zamówień" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="16"/>
+        <Label Content="Lista produktów w zamówieniu" HorizontalAlignment="Left" Margin="516,80,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="16"/>
+        <ListView Name="Orders" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="10,120,0,0" VerticalAlignment="Top" Width="501">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" DisplayMemberBinding="{Binding Firstname}">
@@ -43,7 +45,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="516,63,0,0" VerticalAlignment="Top" Width="343">
+        <ListView Name="OrderedProducts" SelectionMode="Single" HorizontalAlignment="Left" Height="300" Margin="516,120,0,0" VerticalAlignment="Top" Width="343">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
@@ -69,8 +71,32 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="addOrderBtn" Content="+" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="addOrderBtn_Click"/>
-        <Button x:Name="backBtn" Content="Wróć do menu" HorizontalAlignment="Left" Margin="20,380,0,0" VerticalAlignment="Top" Width="100" Click="backBtn_Click"/>
-        <Button x:Name="generateInvoiceBtn" Content="Generuj fakturę (PDF)" HorizontalAlignment="Left" Margin="139,380,0,0" VerticalAlignment="Top" Width="120" Click="generateInvoiceBtn_Click"/>
+        <Button x:Name="addOrderBtn" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="addOrderBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/plus.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Dodaj zamówienie</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="backBtn" HorizontalAlignment="Left" Margin="19,450,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="backBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/back.png" Margin="5,5,5,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Menu</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="generateInvoiceBtn" HorizontalAlignment="Left" Margin="130,450,0,0" VerticalAlignment="Top" Width="170" Height="35" Click="generateInvoiceBtn_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/pdf.png" Margin="5,5,5,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Generuj fakturę (PDF)</TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </Window>

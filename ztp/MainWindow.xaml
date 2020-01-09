@@ -5,9 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ztp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Estillo" Height="450" Width="490" Icon="Graphics/icon.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFE7E7EE">
     <Grid>
-        <Button x:Name="MagazineBtn" Content="Magazyn" HorizontalAlignment="Left" Margin="339,54,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="MagazineBtn_Click"/>
-        <Button x:Name="OrderBtn" Content="Zamówienia" HorizontalAlignment="Left" Margin="339,118,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="OrderBtn_Click"/>
+        <Label Content="Sklep odzieżowy" HorizontalAlignment="Center" Margin="131,40,131,0" FontSize="24" FontFamily="Segoe UI Light" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="ESTILLO" HorizontalAlignment="Center" Margin="176,80,176,0" VerticalAlignment="Top" FontSize="20" Foreground="#FF5404FF" Background="#00000000" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="2">
+            <Label.Effect>
+                <DropShadowEffect Color="#FF96B2BF"/>
+            </Label.Effect>
+        </Label>
+        <Button x:Name="MagazineBtn" HorizontalAlignment="Center" Margin="144,150,144,0" VerticalAlignment="Top" Height="45" Width="150" Click="MagazineBtn_Click" FontFamily="Segoe UI Semibold" FontSize="14" Grid.ColumnSpan="2">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/warehouse.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Magazyn</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="OrderBtn" HorizontalAlignment="Center" Margin="144,210,144,0" Height="45" Width="150" Click="OrderBtn_Click" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Grid.ColumnSpan="2">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/order.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Zamówienia</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="ExitBtn" HorizontalAlignment="Center" Margin="144,270,144,0" Height="45" Width="150" Click="ExitBtn_Click" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Grid.ColumnSpan="2">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF5404FF" BlurRadius="10" Opacity="0.5"/>
+            </Button.Effect>
+            <DockPanel>
+                <Image Source="/Graphics/logout.png" Margin="0,5,10,5"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Wyjście</TextBlock>
+            </DockPanel>
+        </Button>
+        <Label Content="Zaawansowane Techniki Programistyczne - 2020" HorizontalAlignment="Center" Margin="90,0,90,10" VerticalAlignment="Bottom" FontFamily="Segoe UI Semilight" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
